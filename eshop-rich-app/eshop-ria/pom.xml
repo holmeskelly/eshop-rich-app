@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>eshop</groupId>
+		<artifactId>eshop-parent</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>eshop-ria</artifactId>
+	<packaging>war</packaging>
+	<name>Eshop WebApp Project</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>eshop</groupId>
+			<artifactId>eshop-services</artifactId>
+		</dependency>
+
+		<!-- dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>velocity</groupId>
+			<artifactId>velocity</artifactId>
+		</dependency -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--dependency>
+			<groupId>el-impl</groupId>
+			<artifactId>el-impl</artifactId>
+			<scope>provided</scope>
+		</dependency -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.el</groupId>
+			<artifactId>el-ri</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.richfaces.framework</groupId>
+			<artifactId>richfaces-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.framework</groupId>
+			<artifactId>richfaces-impl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>richfaces-ui</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.facelets</groupId>
+			<artifactId>jsf-facelets</artifactId>
+		</dependency>
+
+		<!-- dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+		</dependency -->
+
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+		</dependency>
+
+
+	</dependencies>
+
+</project>

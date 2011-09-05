@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	
+	<ui:composition template="/templates/default.xhtml">
+		<ui:define name="title">List Books</ui:define>
+		<ui:define name="body">
+			<h:form>
+				<h:panelGrid styleClass="content">
+					<h:panelGroup rendered="#{shopManager.categoryName == null}">
+						<h:outputText styleClass="content content_h2"
+							value="Search results" />
+					</h:panelGroup>
+					<h:panelGroup rendered="#{shopManager.categoryName != null}">
+						<h:outputText styleClass="content content_h2"
+							value="Select Catalog" />
+						<h:panelGroup style="font-size: 14px">
+							<h:outputText value="Category: " />
+							<h:outputText style="font-weight: bolder"
+								value="#{shopManager.categoryName}" />
+						</h:panelGroup>
+					</h:panelGroup>
+					<h:panelGroup styleClass="info block"
+						rendered="#{shopManager.books.rowCount == 0}">
+						<h:outputText value="No books found." />
+					</h:panelGroup>
+					<h:dataTable rendered="#{shopManager.books.rowCount > 0}"
+						value="#{shopManager.books}" var="book">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Title" />
+							</f:facet>
+							<h:outputText value="#{book.title}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Author" />
+							</f:facet>
+							<h:outputText value="#{book.author}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Price" />
+							</f:facet>
+							<h:outputText value="#{book.price}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Details" />
+							</f:facet>
+							<h:commandLink action="#{shopManager.selectBook}"
+								styleClass="link1">
+								<h:outputText value="Details" />
+							</h:commandLink>
+						</h:column>
+					</h:dataTable>
+				</h:panelGrid>
+			</h:form>
+
+		</ui:define>
+
+	</ui:composition>
+
+</ui:composition>

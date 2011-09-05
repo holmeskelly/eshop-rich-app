@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core">
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<link rel="stylesheet" href="/css/eshopf.xhtml" type="text/css" />
+
+		<title><ui:insert name="title">Define title</ui:insert></title>
+	</head>
+	<body>
+		<f:view>
+			<h:form>
+		      <ui:include src="/jsp/TopMenu.xhtml" />
+		      <ui:include src="/jsp/LeftMenu.xhtml" />
+      		</h:form>
+			<ui:insert name="body">Define this content in the pages</ui:insert>
+		</f:view>
+	</body>
+</ui:composition>

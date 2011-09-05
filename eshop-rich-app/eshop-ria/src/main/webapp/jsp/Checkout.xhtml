@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+	<ui:composition template="/templates/default.xhtml">
+		<ui:define name="title">Check Out</ui:define>
+		<ui:define name="body">
+			
+			<h:form id="form">
+				<h:panelGrid styleClass="content">
+					<h:outputText styleClass="content content_h2" value="CheckOut" />
+					<eshop:inputEntry id="nameEntry" label="Contact Name"
+						required="true" value="#{shopManager.contactName}"
+						errorStyleClass="error" requiredMessage="Value is required!" />
+					<h:outputText rendered="#{shopManager.shoppingCartEmpty}"
+						styleClass="error block"
+						value="ERROR: You can't check out an empty shopping cart !!!" />
+					<h:panelGrid columns="3"
+						rendered="#{!shopManager.shoppingCartEmpty}" style="width:auto">
+						<f:facet name="header">
+							<h:outputText value="Delivery and Credit Card Details" />
+						</f:facet>
+						<h:outputText value="Contact Name" />
+						<h:inputText id="name" required="true"
+							value="#{shopManager.customer.contactName}"
+							requiredMessage="Value is required!" />
+						<h:message for="name" styleClass="error" />
+
+						<h:outputText value="Delivery Address" />
+						<h:inputText id="address" required="true"
+							value="#{shopManager.customer.deliveryAddress}"
+							requiredMessage="Value is required!" />
+						<h:message for="address" styleClass="error" />
+						<h:outputText value="Name on Credit Card" />
+						<h:inputText id="ccname" required="true"
+							value="#{shopManager.customer.ccName}"
+							requiredMessage="Value is required!" />
+						<h:message for="ccname" styleClass="error" />
+						<h:outputText value="Credit Card Number" />
+						<h:inputText id="ccnumber" required="true"
+							value="#{shopManager.customer.ccNumber}"
+							converter="CCNumberConverter"
+							requiredMessage="Value is required!"
+							validatorMessage="Only 15 or 16 digits accepted!">
+							<f:validateLength minimum="15" maximum="16" />
+						</h:inputText>
+						<h:message for="ccnumber" styleClass="error" />
+						<h:outputText value="Credit Card Expiry Date (MM/YY)" />
+						<h:inputText id="ccexpiry" required="true"
+							value="#{shopManager.customer.ccExpiryDate}"
+							requiredMessage="Value is required!">
+							<f:validator validatorId="CCExpiryValidator" />
+						</h:inputText>
+						<h:message for="ccexpiry" styleClass="error" />
+						<h:outputText value=" " />
+						<h:commandButton value="Check Out"
+							action="#{shopManager.checkOut}" />
+					</h:panelGrid>
+				</h:panelGrid>
+			</h:form>
+
+		</ui:define>
+
+	</ui:composition>
+
+</ui:composition>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listBooks::#jsp#ListBooks.xhtml"
+    NAME="output" PATH="/jsp/ListBooks.xhtml"
+    TARGET="rules:#jsp#ListBooks.xhtml" TITLE="listBooks" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::1" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::1" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="showBook::#jsp#BookDetails.xhtml"
+    NAME="output" PATH="/jsp/BookDetails.xhtml"
+    TARGET="rules:#jsp#BookDetails.xhtml" TITLE="showBook" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::2" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::2" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="showCart::#jsp#ShoppingCart.xhtml"
+    NAME="output" PATH="/jsp/ShoppingCart.xhtml"
+    TARGET="rules:#jsp#ShoppingCart.xhtml" TITLE="showCart" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::3" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::3" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="checkOut::#jsp#Checkout.xhtml" NAME="output"
+    PATH="/jsp/Checkout.xhtml" TARGET="rules:#jsp#Checkout.xhtml"
+    TITLE="checkOut" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::4" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::4" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="orderConfirmation::#jsp#OrderConfirmation.xhtml" NAME="output"
+    PATH="/jsp/OrderConfirmation.xhtml"
+    TARGET="rules:#jsp#OrderConfirmation.xhtml"
+    TITLE="orderConfirmation" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#jsp#ListBooks.xhtml"
+  PATH="/jsp/ListBooks.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#jsp#BookDetails.xhtml"
+  PATH="/jsp/BookDetails.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#jsp#ShoppingCart.xhtml"
+  PATH="/jsp/ShoppingCart.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#jsp#Checkout.xhtml"
+  PATH="/jsp/Checkout.xhtml" SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#jsp#OrderConfirmation.xhtml"
+  PATH="/jsp/OrderConfirmation.xhtml" SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

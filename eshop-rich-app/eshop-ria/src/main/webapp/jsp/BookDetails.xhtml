@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+  	<ui:composition template="/templates/default.xhtml">
+		<ui:define name="title">Book details</ui:define>
+		<ui:define name="body">
+		
+	    <h:form>
+	      <h:panelGrid styleClass="content">
+	        <h:outputText styleClass="content content_h2" value="Book details"/>
+	        <h:panelGroup 
+	            styleClass="error block" 
+	            rendered="#{shopManager.book == null}"
+	            >
+	          <h:outputText value="Invalid book identifier!"/>
+	          </h:panelGroup>
+	        <h:panelGrid columns="2" rendered="#{shopManager.book != null}">
+	          <h:graphicImage id="bookImg"
+	              value="/images/#{shopManager.book.id}.gif"/>
+	          <h:panelGroup>
+	            <h:outputText style="font-weight: bolder"
+	                value="#{shopManager.book.title}"/><br/>
+	            <h:outputText value="#{shopManager.book.author}"/><br/>
+	            <h:outputText value="Price: #{shopManager.book.price}"/>
+	            </h:panelGroup>
+	          <h:outputText value=" "/>
+	          <h:panelGrid styleClass="wide" style="text-align: right">
+	            <h:commandLink id="addToCart" value="Add to Cart"
+	                action="#{shopManager.addToCart}" styleClass="link1"
+	                />
+	            </h:panelGrid>
+	          </h:panelGrid>
+	        </h:panelGrid>
+	      </h:form>
+    
+    </ui:define>
+    
+   </ui:composition>
+    
+</ui:composition>

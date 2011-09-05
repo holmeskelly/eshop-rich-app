@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core">
+	
+<f:subview id="leftMenu">
+  <h:panelGrid styleClass="menu">
+    <h:panelGroup styleClass="box">
+      <h:outputText styleClass="box_title" value="Quick Search"/>
+      <h:outputText styleClass="box_p" value="Book Title/Author:"/>
+      <h:inputText size="15"
+          styleClass="box_searchTxt"
+          binding="#{shopManager.searchTxt}"
+          />
+          
+      <h:commandButton 
+          type="submit" value="Search"
+          styleClass="box_searchBtn"
+          action="#{shopManager.searchBooks}"
+          immediate="true"
+          />
+      </h:panelGroup>
+    <h:panelGroup styleClass="box" id="categBox">
+      <h:outputText styleClass="box_title" value="Categories"/>
+      <h:dataTable value="#{shopManager.categories}" var="category">
+        <h:column>
+          <h:commandLink 
+              action="#{shopManager.selectCategory}" 
+              value="#{category.name}" 
+              immediate="true"
+              />
+          </h:column>
+        </h:dataTable>
+      </h:panelGroup>
+    </h:panelGrid>  
+  </f:subview>
+
+</ui:composition>

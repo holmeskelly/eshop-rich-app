@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core">
+	
+	
+	<ui:composition template="/templates/default.xhtml">
+		<ui:define name="title">Shopping Cart</ui:define>
+		<ui:define name="body">
+			
+			<h:form>
+				<h:panelGrid styleClass="content">
+					<h:outputText styleClass="content content_h2" value="Shopping Cart" />
+					<h:outputText styleClass="info block"
+						value="The Shopping cart is empty."
+						rendered="#{shopManager.shoppingCartEmpty}" />
+					<h:panelGroup rendered="#{!shopManager.shoppingCartEmpty}">
+						<h:dataTable value="#{shopManager.shoppingCart}" var="item">
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Title"></h:outputText>
+								</f:facet>
+								<h:outputText value="#{item.title}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Author"></h:outputText>
+								</f:facet>
+								<h:outputText value="#{item.author}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Price"></h:outputText>
+								</f:facet>
+								<h:outputText value="#{item.price}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Quantity"></h:outputText>
+								</f:facet>
+								<h:inputText id="quantity" value="#{item.quantity}" size="2"
+									required="true" requiredMessage="What? Nothing?"
+									converterMessage="An integer, please!"
+									validatorMessage="At least one copy!">
+									<f:validateLongRange minimum="1" />
+								</h:inputText>
+								<h:commandButton action="#{shopManager.updateItem}"
+									value="Update" />
+								<f:verbatim>
+									<br />
+								</f:verbatim>
+								<h:message for="quantity" styleClass="error" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Subtotal"></h:outputText>
+								</f:facet>
+								<h:outputText value="#{item.subtotal}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Delete"></h:outputText>
+								</f:facet>
+								<h:commandButton action="#{shopManager.deleteItem}"
+									value="Delete" />
+							</h:column>
+						</h:dataTable>
+						<h:outputText value="Total: #{shopManager.orderTotal}"
+							styleClass="content total" />
+						<h:commandLink action="checkOut" value="Check Out"
+							styleClass="content center link1" />
+					</h:panelGroup>
+				</h:panelGrid>
+			</h:form>
+
+		</ui:define>
+
+	</ui:composition>
+
+</ui:composition>
